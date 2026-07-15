@@ -1,0 +1,72 @@
+{
+  "-{{F}} * (group_neutralize(ts_count_nans({F}, {{F}}), sector))": {
+    "hits": 4,
+    "cooldown_until_gen": 74,
+    "last_alpha": "-1 * (group_neutralize(ts_count_nans(implied_volatility_call_150, 15), sector))",
+    "first_hit": 11,
+    "last_sharpe": 1.48
+  },
+  "group_rank(ts_arg_min({F}, {{F}}), subindustry)": {
+    "hits": 1,
+    "cooldown_until_gen": 0,
+    "last_alpha": "group_rank(ts_arg_min(capex, 21), subindustry)",
+    "first_hit": 17,
+    "last_sharpe": 1.46
+  },
+  "-{{F}} * (group_rank(ts_delta(rank({F}), {{F}}) - ts_delta(rank(ts_av_diff({F}, {{F}})), {{F}}), industry))": {
+    "hits": 1,
+    "cooldown_until_gen": 0,
+    "last_alpha": "-1 * (group_rank(ts_delta(rank(equity), 10) - ts_delta(rank(ts_av_diff(fscore_surface_accel, 60)), 10), industry))",
+    "first_hit": 15,
+    "last_sharpe": 5.62
+  },
+  "-{{F}} * (group_neutralize(group_zscore(ts_count_nans({F}, {{F}}), subindustry), subindustry))": {
+    "hits": 1,
+    "cooldown_until_gen": 0,
+    "last_alpha": "-1 * (group_neutralize(group_zscore(ts_count_nans(implied_volatility_mean_skew_720, 5), subindustry), subindustry))",
+    "first_hit": 31,
+    "last_sharpe": 1.42
+  },
+  "ts_decay_linear(group_rank(ts_av_diff({F}, {{F}}), subindustry), {{F}})": {
+    "hits": 1,
+    "cooldown_until_gen": 0,
+    "last_alpha": "ts_decay_linear(group_rank(ts_av_diff(unsystematic_risk_last_60_days, 20), subindustry), 20)",
+    "first_hit": 25,
+    "last_sharpe": 1.4
+  },
+  "-{{F}} * (group_rank(ts_corr(ts_delay({F},{{F}}), ts_delay({F},{{F}}), {{F}}), subindustry))": {
+    "hits": 1,
+    "cooldown_until_gen": 0,
+    "last_alpha": "-1 * (group_rank(ts_corr(ts_delay(fn_liab_fair_val_l1_a,1), ts_delay(implied_volatility_call_720,1), 20), subindustry))",
+    "first_hit": 27,
+    "last_sharpe": 1.44
+  },
+  "-{{F}} * (group_neutralize(days_from_last_change({F}), sector))": {
+    "hits": 1,
+    "cooldown_until_gen": 0,
+    "last_alpha": "-1 * (group_neutralize(days_from_last_change(implied_volatility_mean_30), sector))",
+    "first_hit": 38,
+    "last_sharpe": 1.28
+  },
+  "-{{F}} * (group_rank(ts_count_nans({F}, {{F}}), sector))": {
+    "hits": 1,
+    "cooldown_until_gen": 0,
+    "last_alpha": "-1 * (group_rank(ts_count_nans(unsystematic_risk_last_60_days, 10), sector))",
+    "first_hit": 4,
+    "last_sharpe": 1.58
+  },
+  "-{{F}} * (group_neutralize(days_from_last_change({F}), industry))": {
+    "hits": 1,
+    "cooldown_until_gen": 0,
+    "last_alpha": "-1 * (group_neutralize(days_from_last_change(beta_last_30_days_spy), industry))",
+    "first_hit": 61,
+    "last_sharpe": 1.35
+  },
+  "-{{F}} * (group_rank(ts_count_nans({F}, {{F}}), industry))": {
+    "hits": 1,
+    "cooldown_until_gen": 0,
+    "last_alpha": "-1 * (group_rank(ts_count_nans(implied_volatility_mean_1080, 4), industry))",
+    "first_hit": 65,
+    "last_sharpe": 1.5
+  }
+}

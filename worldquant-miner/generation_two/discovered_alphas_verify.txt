@@ -1,0 +1,605 @@
+[2026-07-12 17:49] Sharpe=1.300 Fitness=1.050 Source=GM-Enhance ID=aknVeMm2
+  EXPR: group_neutralize(ts_decay_linear(group_rank(ts_av_diff(implied_volatility_call_10, 60), sector), 60), subindustry)
+  数值不够
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 18:15] Sharpe=1.390 Fitness=1.190 Source=GM-Enhance ID=zqmrG8LO
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_mean_720), sector), 5))
+  -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_mean_720), market), 2))
+  自相关性超标，0.88
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 18:15] Sharpe=1.420 Fitness=1.240 Source=GM-Enhance ID=A1PQm10w
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_mean_720), sector), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 18:15] Sharpe=1.390 Fitness=1.220 Source=GM-Enhance ID=pwlvZQXg
+  EXPR: ts_decay_linear(group_rank(sign(implied_volatility_call_720), subindustry), 5)
+  极差
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 18:20] Sharpe=1.600 Fitness=0.980 Source=VRP-轮替注入 ID=6X9AJdaK
+  EXPR: group_neutralize(rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+  group_neutralize(rank(implied_volatility_call_120 / parkinson_volatility_120), sector)，
+  industry，decay=2，weight_concentration差一点不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 18:42] Sharpe=-1.600 Fitness=-0.980 Source=VRP-轮替注入 ID=9qrE28K9
+  EXPR: group_neutralize(-rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 18:53] Sharpe=1.440 Fitness=1.290 Source=GM-Enhance ID=kq0JMGRL
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_put_180), subindustry), 10))
+  -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_put_180), industry), 2))
+  改成这个提交了
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 20:07] Sharpe=1.550 Fitness=1.250 Source=GM-Enhance ID=E5E65l7G
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_call_30,1), 30) / 30, subindustry), 10)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 20:07] Sharpe=1.560 Fitness=1.250 Source=GM-Enhance ID=vRl1Rd1b
+  EXPR: -1 * (-1 * (group_rank(1 - ts_count_nans(ts_delay(implied_volatility_call_30,1), 30) / 30, subindustry)))
+  subuniverse不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 20:07] Sharpe=1.550 Fitness=1.240 Source=GM-Enhance ID=6X9dXEAE
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_call_30,1), 30) / 30, subindustry), 5)
+  ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_call_30,1), 30) / 30, market), 5)
+  7.13改成这个提交了
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 20:07] Sharpe=1.560 Fitness=1.250 Source=GM-Enhance ID=Xgn9gJja
+  EXPR: group_rank(1 - ts_count_nans(ts_delay(implied_volatility_call_30,1), 30) / 30, subindustry)
+  subuniverse不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 20:32] Sharpe=-1.600 Fitness=-0.980 Source=VRP-轮替注入 ID=9qrE28K9
+  EXPR: group_neutralize(-rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 20:47] Sharpe=1.600 Fitness=0.980 Source=VRP-轮替注入 ID=6X9AJdaK
+  EXPR: group_neutralize(rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 21:53] Sharpe=1.580 Fitness=1.310 Source=GM-Enhance ID=QPVvrmVM
+  EXPR: -1 * (-1 * (ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_720,1), subindustry), 30)))
+  好几项不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 21:53] Sharpe=1.510 Fitness=1.220 Source=GM-Enhance ID=E5E60avm
+  EXPR: group_neutralize(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_720,1), subindustry), 30), subindustry)
+  好几项不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 21:53] Sharpe=1.580 Fitness=1.310 Source=GM-Enhance ID=WjGOw9nG
+  EXPR: group_neutralize(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_720,1), subindustry), 30), industry)
+  好几项不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 21:53] Sharpe=1.560 Fitness=1.290 Source=GM-Enhance ID=O0ZAw9Y7
+  EXPR: ts_decay_linear(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_720,1), subindustry), 30), 5)
+  好几项不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 21:53] Sharpe=1.490 Fitness=1.170 Source=GM-Enhance ID=E5E60l7P
+  EXPR: rank(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_720,1), subindustry), 30))
+  好几项不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 21:53] Sharpe=1.540 Fitness=1.270 Source=GM-Enhance ID=1YdNVKkW
+  EXPR: ts_decay_linear(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_720,1), subindustry), 30), 10)
+  好几项不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:11] Sharpe=1.560 Fitness=1.460 Source=GM-Enhance ID=9qrxb52d
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_put_60,1), 30), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:11] Sharpe=1.390 Fitness=1.340 Source=GM-Enhance ID=3qRoxw3N
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_20,1), 15) / 15, subindustry), sector)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:11] Sharpe=1.560 Fitness=1.460 Source=GM-Enhance ID=omlEAd2b
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_put_60,1), 30), subindustry))
+  -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_put_60,1), 30), market))
+  7.14改成这个提交了
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:11] Sharpe=1.390 Fitness=1.340 Source=GM-Enhance ID=kq0NX2EO
+  EXPR: group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_20,1), 15) / 15, subindustry)
+  group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_20,1), 15) / 15, market)
+  xAkG07ln，改成这个，自相关性不合格，原alpha的subuniverse不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:11] Sharpe=1.390 Fitness=1.340 Source=GM-Enhance ID=ZYnQx67x
+  EXPR: -1 * (-1 * (group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_20,1), 15) / 15, subindustry)))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:11] Sharpe=1.390 Fitness=1.340 Source=GM-Enhance ID=YP01mw6q
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_20,1), 15) / 15, subindustry), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:19] Sharpe=1.600 Fitness=1.520 Source=Template-D1 ID=P03ole8K
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_put_90, 30), sector))
+  -1 * (ts_count_nans(implied_volatility_put_90, 30))
+  YP0zKn1A，改成这个，group为market，自相关性不合格，原alpha的subuniverse不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:19] Sharpe=1.590 Fitness=1.480 Source=Template-D1 ID=E5E6a059
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_mean_120, 30), sector))
+  ZYnzexMn，自相关性不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:26] Sharpe=1.580 Fitness=1.500 Source=DecaySweep ID=LL1MXNG9
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_put_90, 30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:26] Sharpe=1.570 Fitness=1.480 Source=DecaySweep ID=YP01kgjW
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_put_90, 30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:26] Sharpe=1.570 Fitness=1.480 Source=DecaySweep ID=aknKPxb6
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_put_90, 30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:26] Sharpe=1.580 Fitness=1.460 Source=DecaySweep ID=A1PVaLqY
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_mean_120, 30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:26] Sharpe=1.570 Fitness=1.450 Source=DecaySweep ID=QPVvl6zw
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_mean_120, 30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 22:26] Sharpe=1.570 Fitness=1.460 Source=DecaySweep ID=blq6PKoR
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_mean_120, 30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-12 23:19] Sharpe=1.460 Fitness=1.380 Source=Template-D1 ID=E5E6KnaJ
+  EXPR: group_rank(ts_arg_min(capex, 21), subindustry)
+  不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 10:22] Sharpe=1.410 Fitness=1.130 Source=GM-Enhance ID=MPQ6a029
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_mean_skew_270), subindustry), 5))
+  需要去掉-1，不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 12:07] Sharpe=1.600 Fitness=0.980 Source=VRP-轮替注入 ID=6X9AJdaK
+  EXPR: group_neutralize(rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 13:29] Sharpe=5.620 Fitness=2.800 Source=Template-D1 ID=JjO8A532
+  EXPR: -1 * (group_rank(ts_delta(rank(equity), 10) - ts_delta(rank(ts_av_diff(fscore_surface_accel, 60)), 10), industry))
+  换手率100%，去掉-1也一样，
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 13:32] Sharpe=9.020 Fitness=6.430 Source=DecaySweep ID=2rL5gOb6
+  EXPR: -1 * (group_rank(ts_delta(rank(equity), 10) - ts_delta(rank(ts_av_diff(fscore_surface_accel, 60)), 10), industry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 13:32] Sharpe=7.630 Fitness=7.320 Source=DecaySweep ID=omlabWll
+  EXPR: -1 * (group_rank(ts_delta(rank(equity), 10) - ts_delta(rank(ts_av_diff(fscore_surface_accel, 60)), 10), industry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 13:43] Sharpe=1.540 Fitness=1.280 Source=GM-Enhance ID=e70ajGrM
+  EXPR: ts_decay_linear(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_1080,1), subindustry), 40), 5)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 13:43] Sharpe=1.570 Fitness=1.310 Source=GM-Enhance ID=QPV08zVp
+  EXPR: ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_1080,1), subindustry), 40)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 13:43] Sharpe=1.570 Fitness=1.310 Source=GM-Enhance ID=d50aGoKY
+  EXPR: -1 * (-1 * (ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_1080,1), subindustry), 40)))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 14:01] Sharpe=1.420 Fitness=1.170 Source=GM-Enhance ID=N1rKXR2g
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_720,1), 30), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 14:01] Sharpe=1.420 Fitness=1.170 Source=GM-Enhance ID=d50921RK
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_720,1), 30), subindustry), 10))
+  应该是自相关不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 15:07] Sharpe=1.330 Fitness=1.190 Source=GM-Enhance ID=9qrG09AK
+  EXPR: ts_decay_linear(group_rank(ts_delta(ts_backfill(ts_delay(cashflow_dividends,1), 5), 10), subindustry), 10)
+  不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 15:07] Sharpe=1.360 Fitness=1.250 Source=GM-Enhance ID=kq08lE0k
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(cashflow_dividends,1), 5) / 5, subindustry), 5)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 15:07] Sharpe=1.370 Fitness=1.260 Source=GM-Enhance ID=rKl0Xm6J
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(cashflow_dividends,1), 5) / 5, subindustry), sector)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 15:07] Sharpe=1.320 Fitness=1.170 Source=GM-Enhance ID=omlPOzWE
+  EXPR: group_neutralize(group_rank(ts_delta(ts_backfill(ts_delay(cashflow_dividends,1), 5), 10), subindustry), industry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 15:07] Sharpe=1.370 Fitness=1.260 Source=GM-Enhance ID=P03P9RRw
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(cashflow_dividends,1), 5) / 5, subindustry), industry)
+  rank(1 - ts_count_nans(ts_delay(cashflow_dividends,1), 5) / 20)
+  # rank(1 - ts_count_nans(ts_delay(cashflow_dividends,1), 5) / 10)
+  # group_rank(1 - ts_count_nans(ts_delay(cashflow_dividends,1), 5) / 10, market)
+  # group_rank(1 - ts_count_nans(ts_delay(cashflow_dividends,1), 5) / 5, market)
+  # group_neutralize(group_rank(1 - ts_count_nans(ts_delay(cashflow_dividends,1), 5) / 5, market), market)
+  # group_neutralize(group_rank(1 - ts_count_nans(ts_delay(cashflow_dividends,1), 5) / 5, sector), sector)
+  自相关性不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 15:25] Sharpe=1.350 Fitness=1.150 Source=GM-Enhance ID=88QGAKr7
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_mean_60), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 15:25] Sharpe=1.370 Fitness=1.170 Source=GM-Enhance ID=KP9VeJ6x
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_mean_60), subindustry), 10))
+  subuniverse不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 15:25] Sharpe=1.540 Fitness=1.420 Source=GM-Enhance ID=WjGYk2Ad
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_put_360,1), 20), subindustry), 5))
+  自相关性不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 15:46] Sharpe=1.430 Fitness=1.010 Source=GM-Enhance ID=vRlYxgaa
+  EXPR: rank(group_rank(trade_when(ts_rank(implied_volatility_put_90, 78) > 0.5, ts_av_diff(fnd2_ebitfr, 6), -1 * implied_volatility_put_90), subindustry))
+  7.14提交
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 16:09] Sharpe=1.600 Fitness=0.980 Source=VRP-轮替注入 ID=6X9AJdaK
+  EXPR: group_neutralize(rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 16:54] Sharpe=-1.600 Fitness=-0.980 Source=VRP-轮替注入 ID=9qrE28K9
+  EXPR: group_neutralize(-rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 17:09] Sharpe=1.300 Fitness=1.250 Source=GM-Enhance ID=RR85plEa
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(parkinson_volatility_20,1), 20), subindustry), 5))
+  自相关性不合格
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 17:09] Sharpe=1.310 Fitness=1.270 Source=GM-Enhance ID=LL181Ae2
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(parkinson_volatility_20,1), 20), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 18:35] Sharpe=1.540 Fitness=1.440 Source=GM-Enhance ID=A1PLVk5d
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_put_90,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 18:35] Sharpe=1.510 Fitness=1.410 Source=GM-Enhance ID=pwlWdKgV
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_put_90,1), 40), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 18:35] Sharpe=1.510 Fitness=1.410 Source=GM-Enhance ID=kq08NKxK
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_put_90,1), 40), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 18:35] Sharpe=1.540 Fitness=1.440 Source=GM-Enhance ID=6X9GdJm5
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_put_90,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 19:07] Sharpe=1.590 Fitness=1.480 Source=Template-D1 ID=E5Em87z9
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_mean_20, 30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 19:11] Sharpe=1.590 Fitness=1.480 Source=DecaySweep ID=omlPJKlk
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_mean_20, 30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 19:11] Sharpe=1.580 Fitness=1.460 Source=DecaySweep ID=JjO3W5Km
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_mean_20, 30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 19:11] Sharpe=1.570 Fitness=1.450 Source=DecaySweep ID=mLbK0xkE
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_mean_20, 30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 19:11] Sharpe=1.570 Fitness=1.460 Source=DecaySweep ID=j20VPA6j
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_mean_20, 30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 19:54] Sharpe=1.420 Fitness=1.210 Source=GM-Enhance ID=np26XvMd
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_20,1), 5), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 19:54] Sharpe=1.420 Fitness=1.220 Source=GM-Enhance ID=KP9V2Nbl
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_20,1), 5), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 19:54] Sharpe=1.420 Fitness=1.210 Source=GM-Enhance ID=j20VMk0e
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_20,1), 5), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 20:32] Sharpe=1.420 Fitness=1.220 Source=GM-Enhance ID=vRlYEm6Q
+  EXPR: ts_decay_linear(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_20,1), subindustry), 20), 5)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 20:32] Sharpe=1.420 Fitness=1.230 Source=GM-Enhance ID=0mEGVRqk
+  EXPR: ts_decay_linear(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_20,1), subindustry), 20), 10)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 20:32] Sharpe=1.400 Fitness=1.180 Source=GM-Enhance ID=LL18v8EL
+  EXPR: -1 * (-1 * (ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_20,1), subindustry), 20)))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 20:32] Sharpe=1.340 Fitness=1.090 Source=GM-Enhance ID=d509Mopx
+  EXPR: group_neutralize(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_20,1), subindustry), 20), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 20:47] Sharpe=1.370 Fitness=1.220 Source=GM-Enhance ID=JjO39AlW
+  EXPR: ts_decay_linear(group_rank(ts_delta(ts_backfill(ts_delay(cashflow_dividends,1), 5), 30), subindustry), 10)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 20:47] Sharpe=1.300 Fitness=1.110 Source=GM-Enhance ID=3qRGN2bN
+  EXPR: group_neutralize(group_rank(ts_delta(ts_backfill(ts_delay(cashflow_dividends,1), 5), 30), subindustry), sector)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 20:47] Sharpe=1.350 Fitness=1.180 Source=GM-Enhance ID=mLbKEwdx
+  EXPR: ts_decay_linear(group_rank(ts_delta(ts_backfill(ts_delay(cashflow_dividends,1), 5), 30), subindustry), 5)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 20:47] Sharpe=1.300 Fitness=1.110 Source=GM-Enhance ID=O0Z6lv2R
+  EXPR: group_neutralize(group_rank(ts_delta(ts_backfill(ts_delay(cashflow_dividends,1), 5), 30), subindustry), industry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:14] Sharpe=1.510 Fitness=1.380 Source=GM-Enhance ID=mLbdLmWX
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_1080,1), 40), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:14] Sharpe=1.530 Fitness=1.400 Source=GM-Enhance ID=QPVOPbaG
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_1080,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:14] Sharpe=1.530 Fitness=1.400 Source=GM-Enhance ID=P03x0A6J
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_1080,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:30] Sharpe=1.480 Fitness=1.140 Source=GM-Enhance ID=1YdOkrok
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_put_270,1), 30) / 30, subindustry), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:30] Sharpe=1.480 Fitness=1.150 Source=GM-Enhance ID=2rL98xGb
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_put_270,1), 30) / 30, subindustry), 5)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:30] Sharpe=1.470 Fitness=1.140 Source=GM-Enhance ID=LL1EWxb2
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_put_270,1), 30) / 30, subindustry), 10)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:30] Sharpe=1.480 Fitness=1.140 Source=GM-Enhance ID=9qr8YPkd
+  EXPR: group_rank(1 - ts_count_nans(ts_delay(implied_volatility_put_270,1), 30) / 30, subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:30] Sharpe=1.480 Fitness=1.140 Source=GM-Enhance ID=omlR79Ll
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_put_270,1), 30) / 30, subindustry), industry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:47] Sharpe=1.560 Fitness=1.250 Source=GM-Enhance ID=VkPZ9Y8Y
+  EXPR: -1 * (-1 * (group_rank(1 - ts_count_nans(ts_delay(implied_volatility_call_360,1), 30) / 30, subindustry)))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:47] Sharpe=1.550 Fitness=1.240 Source=GM-Enhance ID=vRlZq52v
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_call_360,1), 30) / 30, subindustry), 5)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:47] Sharpe=1.560 Fitness=1.250 Source=GM-Enhance ID=mLbd3mgW
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_call_360,1), 30) / 30, subindustry), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:47] Sharpe=1.560 Fitness=1.250 Source=GM-Enhance ID=QPVOJbGp
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_call_360,1), 30) / 30, subindustry), sector)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 21:47] Sharpe=1.550 Fitness=1.250 Source=GM-Enhance ID=blqJZYpr
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_call_360,1), 30) / 30, subindustry), 10)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 22:11] Sharpe=1.420 Fitness=1.110 Source=Template-D1 ID=qMlOqgL2
+  EXPR: -1 * (group_neutralize(group_zscore(ts_count_nans(implied_volatility_mean_skew_720, 5), subindustry), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 22:31] Sharpe=1.470 Fitness=1.350 Source=GM-Enhance ID=MPQdAn8n
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_720,1), 20), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 22:31] Sharpe=1.470 Fitness=1.350 Source=GM-Enhance ID=GrLXv210
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_720,1), 20), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 22:31] Sharpe=1.470 Fitness=1.350 Source=GM-Enhance ID=A1Pe6q7Q
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_720,1), 20), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 22:47] Sharpe=1.460 Fitness=1.230 Source=GM-Enhance ID=XgnVXb7X
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_720,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 23:40] Sharpe=1.600 Fitness=0.980 Source=VRP-轮替注入 ID=6X9AJdaK
+  EXPR: group_neutralize(rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 23:57] Sharpe=1.500 Fitness=1.400 Source=GM-Enhance ID=WjG3NQ8N
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_150,1), 30), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 23:57] Sharpe=1.340 Fitness=1.230 Source=GM-Enhance ID=E5ENqbqr
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_180,1), 30) / 30, subindustry), 10)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 23:57] Sharpe=1.480 Fitness=1.380 Source=GM-Enhance ID=9qr89vAd
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_150,1), 30), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 23:57] Sharpe=1.400 Fitness=1.310 Source=GM-Enhance ID=lelE7z52
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_180,1), 30) / 30, subindustry), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-13 23:57] Sharpe=1.400 Fitness=1.310 Source=GM-Enhance ID=GrLXnMP0
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_180,1), 30) / 30, subindustry), sector)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 00:10] Sharpe=-1.600 Fitness=-0.980 Source=VRP-轮替注入 ID=9qrE28K9
+  EXPR: group_neutralize(-rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 01:58] Sharpe=1.460 Fitness=1.230 Source=GM-Enhance ID=O0ZRJe8q
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_120,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 01:58] Sharpe=1.460 Fitness=1.230 Source=GM-Enhance ID=j20oeNQk
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_120,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 01:58] Sharpe=1.440 Fitness=1.210 Source=GM-Enhance ID=N1rLek9p
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_120,1), 40), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 02:11] Sharpe=1.500 Fitness=1.400 Source=GM-Enhance ID=WjG3OjZd
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_1080,1), 30), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 02:11] Sharpe=1.480 Fitness=1.370 Source=GM-Enhance ID=N1rLeY9L
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_1080,1), 30), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 03:23] Sharpe=1.400 Fitness=1.310 Source=GM-Enhance ID=wpl3Gom2
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_120,1), 30) / 30, subindustry), industry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 03:23] Sharpe=1.400 Fitness=1.310 Source=GM-Enhance ID=rKl9G0w8
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_120,1), 30) / 30, subindustry), sector)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 03:23] Sharpe=1.340 Fitness=1.230 Source=GM-Enhance ID=88QVJx2W
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_120,1), 30) / 30, subindustry), 10)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 03:23] Sharpe=1.360 Fitness=1.260 Source=GM-Enhance ID=7813m5g2
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(parkinson_volatility_120,1), 30) / 30, subindustry), 5)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 04:57] Sharpe=1.540 Fitness=1.400 Source=GM-Enhance ID=N1rLdEZo
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_1080,1), 30), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 04:57] Sharpe=1.510 Fitness=1.370 Source=GM-Enhance ID=3qR1KOPz
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_1080,1), 30), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 04:57] Sharpe=1.540 Fitness=1.400 Source=GM-Enhance ID=O0ZR3PMb
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_1080,1), 30), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 05:10] Sharpe=1.400 Fitness=1.090 Source=Template-D1 ID=LL1EQZKv
+  EXPR: ts_decay_linear(group_rank(ts_av_diff(unsystematic_risk_last_60_days, 20), subindustry), 20)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 05:40] Sharpe=1.440 Fitness=2.160 Source=Template-D1 ID=9qrdz9no
+  EXPR: -1 * (group_rank(ts_corr(ts_delay(fn_liab_fair_val_l1_a,1), ts_delay(implied_volatility_call_720,1), 20), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 06:43] Sharpe=1.490 Fitness=1.390 Source=GM-Enhance ID=O0ZMY9Z7
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_360,1), 40), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 06:43] Sharpe=1.500 Fitness=1.410 Source=GM-Enhance ID=LL1mjRRe
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_360,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 07:02] Sharpe=1.580 Fitness=1.310 Source=GM-Enhance ID=xAk28r0p
+  EXPR: ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_1080,1), subindustry), 30)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 07:02] Sharpe=1.580 Fitness=1.310 Source=GM-Enhance ID=781vbR9Z
+  EXPR: -1 * (-1 * (ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_1080,1), subindustry), 30)))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 07:36] Sharpe=1.390 Fitness=1.340 Source=GM-Enhance ID=vRlpgjZw
+  EXPR: -1 * (-1 * (group_rank(1 - ts_count_nans(ts_delay(historical_volatility_150,1), 15) / 15, subindustry)))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 07:36] Sharpe=1.400 Fitness=1.350 Source=GM-Enhance ID=kq0Wlv1d
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(historical_volatility_150,1), 15) / 15, subindustry), 5)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 07:56] Sharpe=1.430 Fitness=1.170 Source=GM-Enhance ID=XgnvERW8
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_mean_skew_10), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 07:56] Sharpe=1.460 Fitness=1.320 Source=GM-Enhance ID=1Ydl5ZkR
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_put_90), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 08:32] Sharpe=1.280 Fitness=2.070 Source=Template-D1 ID=88QEgPXX
+  EXPR: -1 * (group_neutralize(days_from_last_change(implied_volatility_mean_30), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 08:35] Sharpe=1.370 Fitness=2.220 Source=D1-RetDD优化-[RD]trunc=0.03+TOP1000 ID=blqr2G3Z
+  EXPR: -1 * (group_neutralize(days_from_last_change(implied_volatility_mean_30), sector))
+  -1 * (group_neutralize(days_from_last_change(implied_volatility_mean_30), industry))
+  1YdKrkRW
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 19:43] Sharpe=1.600 Fitness=0.980 Source=VRP-轮替注入 ID=6X9AJdaK
+  EXPR: group_neutralize(rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 20:15] Sharpe=1.500 Fitness=1.400 Source=GM-Enhance ID=O0ZzJYeg
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_720,1), 30), subindustry))
+  ID在网站上对应的alpha是不包含-1的，测出来的sharp和fitness也是负值
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 20:34] Sharpe=1.580 Fitness=1.180 Source=Template-D1 ID=WjGzOvAj
+  EXPR: -1 * (group_rank(ts_count_nans(unsystematic_risk_last_60_days, 10), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 20:39] Sharpe=1.560 Fitness=1.170 Source=DecaySweep ID=QPVz0205
+  EXPR: -1 * (group_rank(ts_count_nans(unsystematic_risk_last_60_days, 10), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 20:39] Sharpe=1.420 Fitness=1.030 Source=DecaySweep ID=ZYnzaLM8
+  EXPR: -1 * (group_rank(ts_count_nans(unsystematic_risk_last_60_days, 10), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 20:39] Sharpe=1.430 Fitness=1.040 Source=DecaySweep ID=O0ZzW56Y
+  EXPR: -1 * (group_rank(ts_count_nans(unsystematic_risk_last_60_days, 10), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 20:39] Sharpe=1.470 Fitness=1.080 Source=DecaySweep ID=gJMGaMlK
+  EXPR: -1 * (group_rank(ts_count_nans(unsystematic_risk_last_60_days, 10), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 20:51] Sharpe=1.300 Fitness=1.250 Source=GM-Enhance ID=qMlG55OO
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(historical_volatility_10,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-14 20:51] Sharpe=1.280 Fitness=1.220 Source=GM-Enhance ID=e70G1aOE
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(historical_volatility_10,1), 40), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 00:16] Sharpe=-1.600 Fitness=-0.980 Source=VRP-轮替注入 ID=9qrE28K9
+  EXPR: group_neutralize(-rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 00:28] Sharpe=1.600 Fitness=0.980 Source=VRP-轮替注入 ID=6X9AJdaK
+  EXPR: group_neutralize(rank(implied_volatility_call_120 / parkinson_volatility_120), subindustry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 00:46] Sharpe=1.440 Fitness=1.030 Source=GM-Enhance ID=6X9oxvJp
+  EXPR: -1 * (group_neutralize(group_rank(days_from_last_change(implied_volatility_put_90), subindustry), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 00:46] Sharpe=1.440 Fitness=1.030 Source=GM-Enhance ID=np2ebQZz
+  EXPR: -1 * (group_rank(days_from_last_change(implied_volatility_put_90), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 00:46] Sharpe=1.430 Fitness=1.270 Source=GM-Enhance ID=58OAVm7o
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_put_90), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 02:08] Sharpe=1.430 Fitness=1.280 Source=GM-Enhance ID=6X9JRMZK
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_put_720), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 02:08] Sharpe=1.400 Fitness=1.230 Source=GM-Enhance ID=omlrnr3J
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_put_720), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 02:48] Sharpe=1.500 Fitness=1.410 Source=GM-Enhance ID=YP0J0qEo
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_20,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 02:48] Sharpe=1.490 Fitness=1.390 Source=GM-Enhance ID=vRl6l0Lz
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_20,1), 40), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 02:48] Sharpe=1.490 Fitness=1.400 Source=GM-Enhance ID=P0383XZL
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_20,1), 40), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 04:30] Sharpe=1.490 Fitness=1.390 Source=GM-Enhance ID=pwlZvklo
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_90,1), 40), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 04:30] Sharpe=1.500 Fitness=1.410 Source=GM-Enhance ID=qMl3EJAE
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_90,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 04:30] Sharpe=1.490 Fitness=1.400 Source=GM-Enhance ID=e70v6ZKO
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_90,1), 40), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 04:30] Sharpe=1.500 Fitness=1.410 Source=GM-Enhance ID=GrLxWAY3
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_90,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 05:27] Sharpe=1.270 Fitness=1.200 Source=GM-Enhance ID=omlrJmJl
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(historical_volatility_90,1), 60), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 07:22] Sharpe=1.270 Fitness=1.200 Source=GM-Enhance ID=QPVgR55Q
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(historical_volatility_180,1), 60), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 09:39] Sharpe=1.420 Fitness=1.170 Source=GM-Enhance ID=e70EpnQd
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_30,1), 30), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 09:39] Sharpe=1.450 Fitness=1.200 Source=GM-Enhance ID=2rLe0avb
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_30,1), 30), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 09:39] Sharpe=1.420 Fitness=1.170 Source=GM-Enhance ID=VkPe9Gnb
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_30,1), 30), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 10:31] Sharpe=1.280 Fitness=1.230 Source=GM-Enhance ID=aknGvQb6
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(parkinson_volatility_30,1), 15), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 10:31] Sharpe=1.280 Fitness=1.220 Source=GM-Enhance ID=JjOrK13A
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(parkinson_volatility_30,1), 15), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 10:31] Sharpe=1.280 Fitness=1.230 Source=GM-Enhance ID=QPV6Xz5r
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(parkinson_volatility_30,1), 15), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 10:31] Sharpe=1.290 Fitness=1.240 Source=GM-Enhance ID=blqAEmGM
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(parkinson_volatility_30,1), 15), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 10:43] Sharpe=1.470 Fitness=1.350 Source=GM-Enhance ID=xAk5aN1q
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_20,1), 20), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 10:43] Sharpe=1.480 Fitness=1.370 Source=GM-Enhance ID=RR8PLeWd
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_20,1), 20), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 10:43] Sharpe=1.470 Fitness=1.350 Source=GM-Enhance ID=blqA3QoN
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_call_20,1), 20), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 10:55] Sharpe=1.300 Fitness=1.250 Source=GM-Enhance ID=mLbQOZL5
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(historical_volatility_20,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 10:55] Sharpe=1.280 Fitness=1.220 Source=GM-Enhance ID=omlZ29mJ
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(historical_volatility_20,1), 40), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 10:55] Sharpe=1.280 Fitness=1.220 Source=GM-Enhance ID=O0Zgexnd
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(historical_volatility_20,1), 40), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 11:07] Sharpe=1.480 Fitness=1.360 Source=Template-D1 ID=YP0YX6pM
+  EXPR: -1 * (group_neutralize(ts_count_nans(implied_volatility_call_150, 15), sector))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 11:40] Sharpe=1.440 Fitness=1.220 Source=GM-Enhance ID=1Yd01NN6
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_90,1), 60), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 11:40] Sharpe=1.560 Fitness=1.220 Source=GM-Enhance ID=aknGM1nv
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_mean_30,1), 40) / 40, subindustry), 10)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 11:40] Sharpe=1.570 Fitness=1.220 Source=GM-Enhance ID=KP9ZqVRN
+  EXPR: ts_decay_linear(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_mean_30,1), 40) / 40, subindustry), 5)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 11:40] Sharpe=1.590 Fitness=1.240 Source=GM-Enhance ID=aknGM92x
+  EXPR: -1 * (-1 * (group_rank(1 - ts_count_nans(ts_delay(implied_volatility_mean_30,1), 40) / 40, subindustry)))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 11:40] Sharpe=1.590 Fitness=1.240 Source=GM-Enhance ID=omlZAXRm
+  EXPR: group_neutralize(group_rank(1 - ts_count_nans(ts_delay(implied_volatility_mean_30,1), 40) / 40, subindustry), industry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 11:55] Sharpe=1.380 Fitness=1.250 Source=GM-Enhance ID=xAk5Qpbg
+  EXPR: ts_decay_linear(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_150,1), subindustry), 30), 10)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 11:55] Sharpe=1.390 Fitness=1.260 Source=GM-Enhance ID=YP0YkPvl
+  EXPR: ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_150,1), subindustry), 30)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 11:55] Sharpe=1.390 Fitness=1.260 Source=GM-Enhance ID=88QX6bPv
+  EXPR: -1 * (-1 * (ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_150,1), subindustry), 30)))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 11:55] Sharpe=1.390 Fitness=1.260 Source=GM-Enhance ID=QPV6levX
+  EXPR: group_neutralize(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_150,1), subindustry), 30), sector)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 11:55] Sharpe=1.390 Fitness=1.260 Source=GM-Enhance ID=LL13Xgo1
+  EXPR: group_neutralize(ts_decay_linear(group_rank(ts_delay(implied_volatility_mean_skew_150,1), subindustry), 30), industry)
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 12:18] Sharpe=1.350 Fitness=1.310 Source=Template-D1 ID=gJMLR6Vg
+  EXPR: -1 * (group_neutralize(days_from_last_change(beta_last_30_days_spy), industry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 12:27] Sharpe=1.280 Fitness=1.090 Source=GM-Enhance ID=kq091W1P
+  EXPR: -1 * (ts_decay_linear(group_rank(days_from_last_change(implied_volatility_call_120), subindustry), 5))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 12:48] Sharpe=1.300 Fitness=1.250 Source=GM-Enhance ID=9qrkRgAr
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(historical_volatility_10,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 12:48] Sharpe=1.280 Fitness=1.220 Source=GM-Enhance ID=mLbQX6RW
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(historical_volatility_10,1), 40), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 12:48] Sharpe=1.300 Fitness=1.250 Source=GM-Enhance ID=qMlG55OO
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(historical_volatility_10,1), 40), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 13:04] Sharpe=1.430 Fitness=1.170 Source=GM-Enhance ID=0mE5Eea2
+  EXPR: -1 * (ts_decay_linear(group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_180,1), 20), subindustry), 10))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 13:04] Sharpe=1.460 Fitness=1.200 Source=GM-Enhance ID=LL1315z1
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_180,1), 20), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 13:04] Sharpe=1.460 Fitness=1.200 Source=GM-Enhance ID=omlZljdl
+  EXPR: -1 * (group_neutralize(ts_count_nans(ts_delay(implied_volatility_mean_skew_180,1), 20), subindustry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 13:19] Sharpe=1.500 Fitness=1.230 Source=Template-D1 ID=kq09PzPP
+  EXPR: -1 * (group_rank(ts_count_nans(implied_volatility_mean_1080, 4), industry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 13:29] Sharpe=1.500 Fitness=1.230 Source=DecaySweep ID=aknG79jW
+  EXPR: -1 * (group_rank(ts_count_nans(implied_volatility_mean_1080, 4), industry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 13:29] Sharpe=1.480 Fitness=1.210 Source=DecaySweep ID=WjGJ7YoG
+  EXPR: -1 * (group_rank(ts_count_nans(implied_volatility_mean_1080, 4), industry))
+────────────────────────────────────────────────────────────────────────────────
+[2026-07-15 13:29] Sharpe=1.480 Fitness=1.220 Source=DecaySweep ID=O0Zg76AJ
+  EXPR: -1 * (group_rank(ts_count_nans(implied_volatility_mean_1080, 4), industry))
+────────────────────────────────────────────────────────────────────────────────
